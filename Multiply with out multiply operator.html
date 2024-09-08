@@ -10,15 +10,21 @@
     <script>
         function multiply(a, b) {
             let ans = 0;
+            let absA = Math.abs(a);
+            let absB = Math.abs(b);
             
-            for (let i = 0; i < b; i++) {
-                ans = ans + a;
+            for (let i = 0; i < absB; i++) {
+                ans = ans + absA;
+            }
+            if ((a < 0) ^ (b < 0)) {
+                ans = -ans;
             }
 
             return ans;
         }
         let number = parseInt(prompt("Enter a number:"));
         let multiplier = parseInt(prompt("Enter the multiplier:"));
+
         let answer = multiply(number, multiplier);
         console.log("The result is " + answer);
         document.getElementById('result').innerHTML = "The result is " + answer;
